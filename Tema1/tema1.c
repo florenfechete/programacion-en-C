@@ -14,7 +14,7 @@ int main(void) {
     int s1,s2,s3,f1,nfibo,p1;
     double c1, c2, n1, n2, n3, n4, n5;
 
-    printf("\nALGORITMO 1 -> TEOREMA DE PITAGORAS\n");
+    /*printf("\nALGORITMO 1 -> TEOREMA DE PITAGORAS\n");
     printf("Introduce el primer cateto: ");
     scanf ("%lf",&c1);
     printf("Introduce el segundo cateto: ");
@@ -71,7 +71,7 @@ int main(void) {
     algoritmo5(nfibo);
 
     printf("\n");
-
+*/
     printf("\nALGORITMO 6 -> ES PRIM0? \n");
 
     do {
@@ -127,7 +127,13 @@ void algoritmo5(int nfibo) {
 }
 
 bool algoritmo6(int p1) {
-    if (p1 % p1 == 0 && p1 % 1 == 0) {
-        return true;
-    } return false;
+    if (p1 <= 1) return false; // 0, 1 y negativos no son primos
+    if (p1 == 2) return true;  // 2 es primo
+
+    for (int i = 2; i < p1; i++) {
+        if (p1 % i == 0) {
+            return false; // encontrado divisor no trivial
+        }
+    }
+    return true; // no se encontraron divisores
 }
