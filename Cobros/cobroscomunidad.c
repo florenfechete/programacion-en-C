@@ -189,7 +189,7 @@ int main(void) {
 
 
     printf("\n\n---- Prueba funcion calcular_importes----\n\n");
-
+    // Uso de malloc y punteros (muy importante)
     double *importe = calcular_importes(c1);
     int k=0;
     for (int i = 0; i < N_PLANTAS; i++) {
@@ -198,10 +198,9 @@ int main(void) {
         k++;
         }
     }
-    free(importe);
+    free(importe); // Liberamos el espacio que habíamos reservado tras utilizar la matriz
     return 0;
 }
-
 
 /**
 Función 1
