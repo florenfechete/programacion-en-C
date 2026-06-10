@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 
 ///////////////////////////////////////////////////////////////
@@ -90,10 +91,10 @@ int main(int argc, char** argv) {
                  else pos.orienta=norte;
                  CapturaLlanico(Servidor,pos,Micliente,1);
                  break;
-         case 4: MuestraLlanicosUsuario(Servidor, Micliente);
-                 break;
-         case 5: //Completa la llamada a la funcion que implementes para el ejercicio 4;
-                 break;
+          case 4: MuestraLlanicosUsuario(Servidor, Micliente);
+                  break;
+          case 5: MuestraSituacion(Servidor);
+                  break;
          default: printf ("Opcion Incorrecta\n");
         }
     }while(opc!=0);
@@ -314,8 +315,46 @@ void CapturaLlanico(TEncaptura Servidor[NLLANICOS],TPosicion pos,SITUACION clien
 //
 /////////////////////////////////////////////////////////////////
 
-void MuestraSituacion(TEncaptura Servidor[NLLANICOS]) {
+void MuestraSituacion(TEncaptura Servidor[NLLANICOS]) { // IA
+    char tipoLlanico[20];
+    char orientacion[10];
 
+    printf("\n====== SITUACION ACTUAL DEL JUEGO ======\n\n");
+
+    for (int i = 0; i < NLLANICOS; i++) {
+        // Convertir tipo de Llanico a string
+        switch(Servidor[i].tipo) {
+            case llanetes:
+                strcpy(tipoLlanico, "Llanetes");
+                break;
+            case llanote:
+                strcpy(tipoLlanico, "Llanote");
+                break;
+            case llanicho:
+                strcpy(tipoLlanico, "Llanicho");
+                break;
+            case allanado:
+                strcpy(tipoLlanico, "Allanado");
+                break;
+            default:
+                strcpy(tipoLlanico, "Desconocido");
+        }
+
+        // Convertir orientacion a string
+        if (Servidor[i].pos.orienta == norte)
+            strcpy(orientacion, "Norte");
+        else
+            strcpy(orientacion, "Oeste");
+
+        // Mostrar informacion del Llanico
+        printf("Posicion %d:\n", i + 1);
+        printf("  Coordenadas: %d grados, %d minutos %d segundos %s\n",
+               Servidor[i].pos.grado, Servidor[i].pos.min,
+               Servidor[i].pos.seg, orientacion);
+        printf("  Tipo de Llanico: %s\n", tipoLlanico);
+        printf("  Unidades disponibles para capturar: %d\n\n", Servidor[i].ndisponibles);
+    }
+    printf("======================================\n\n");
 }
 
 /////////////////////////////////////////////////////////////////
