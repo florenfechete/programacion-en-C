@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
       printf("2. Inicio de Juego por defecto.\n");
       printf("3. Captura Llanico .\n");
       printf("4. Imprimir Situacion de jugador .\n");
-      printf("5. Imprime Situación del Juego.\n");
+      printf("5. Imprime Situacion del Juego.\n");
       printf("0. Salir.\n");
       scanf("%d%*c", &opc);
       switch (opc) {
