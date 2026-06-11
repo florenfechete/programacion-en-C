@@ -44,8 +44,6 @@ int main(void) {
     Contenedor c2 = {61543,33.117,"Repuestos de Bankok","Ban SA","Maeyt SA"};
     Contenedor c3 = {98643,10.641,"Paqueteria de China","Poew SL","Vase SA"};
 
-    hub h1;
-    for (int i=0 ; i < N_FILAS)
 
     printf("\n----- BIENVENIDO AL PROGRAMA DE CONTROL DE MERCANCIAS -----\n");
 
